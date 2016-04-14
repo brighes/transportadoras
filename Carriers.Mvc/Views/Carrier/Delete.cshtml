@@ -1,0 +1,22 @@
+﻿@model Carriers.Mvc.ViewModels.CarrierVm
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Você deseja excluir este registro?</h3>
+<div>
+    
+    @Html.Partial("~/Views/Carrier/_DetailCarrier.cshtml", Model)
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

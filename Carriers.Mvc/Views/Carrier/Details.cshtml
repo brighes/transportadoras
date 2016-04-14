@@ -1,0 +1,17 @@
+﻿@model Carriers.Mvc.ViewModels.CarrierVm
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>CarrierVm</h4>
+    <hr />
+    @Html.Partial("~/Views/Carrier/_DetailCarrier.cshtml", Model)
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

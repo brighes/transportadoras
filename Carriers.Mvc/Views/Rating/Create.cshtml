@@ -1,0 +1,61 @@
+﻿@model Carriers.Mvc.ViewModels.RatingVm
+@using Carriers.Domain.Enuns
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.Id)
+
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Avaliar Transportadora</h4>
+        <hr />
+        <div class="form-group">
+            @Html.Label("Agilidade na Entrega", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.AgilidadeNaEntrega, Enum.GetNames(typeof(ERatingCarrier)).Select(e => new SelectListItem { Text = e }), "Selecione...")
+                @Html.ValidationMessageFor(model => model.AgilidadeNaEntrega, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Cuidado com Mercadoria", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CuidadoComMercadoria, Enum.GetNames(typeof(ERatingCarrier)).Select(e => new SelectListItem { Text = e }), "Selecione...")
+                @Html.ValidationMessageFor(model => model.CuidadoComMercadoria, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Transparência", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Transparencia, Enum.GetNames(typeof(ERatingCarrier)).Select(e => new SelectListItem { Text = e }), "Selecione...")
+                @Html.ValidationMessageFor(model => model.Transparencia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Comunicação", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.BoaComunicacao, Enum.GetNames(typeof(ERatingCarrier)).Select(e => new SelectListItem { Text = e }), "Selecione...")
+                @Html.ValidationMessageFor(model => model.BoaComunicacao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
