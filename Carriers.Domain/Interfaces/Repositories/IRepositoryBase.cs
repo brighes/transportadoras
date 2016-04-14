@@ -14,5 +14,6 @@ namespace Carriers.Domain.Interfaces
         void Update(TEntity entity);
         void Remove(TEntity entity);
         void Dispose();
+
     }
 }
