@@ -19,6 +19,8 @@ namespace Carriers.Mvc.ViewModels
         public ERatingCarrier BoaComunicacao { get; set; }
         [Required]
         public ERatingCarrier CuidadoComMercadoria { get; set; }
-        public int IdCarrier { get; internal set; }
+
+        public int IdCarrier { get; set; }
+        public int IdUser { get; set; }
     }
 }

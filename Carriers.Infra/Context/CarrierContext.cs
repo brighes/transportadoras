@@ -22,10 +22,15 @@ namespace Carriers.Infra.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
+            
             modelBuilder.Properties()
                         .Where(p => p.Name == "Id")
                         .Configure(p => p.IsKey());
+
+            //modelBuilder.Entity<Rating>()
+            //  .HasRequired(x => x.Carrier)
+            //  .WithOptional(x => x.Rating)
+            //  .WillCascadeOnDelete(true);
 
             modelBuilder.Configurations.Add(new CarrierConfiguration());
         }

@@ -4,11 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Avaliar Transportadoras</h2>
+@if (!Model.Any())
+{
+    <p>
+        Não possui transportadoras cadastradas para avaliar.
+    </p>
+}
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -20,19 +24,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RazaoSocial)
-        </td>
-        <td>
-            @Html.ActionLink("Avaliar", "Create", new { id=item.Id }) 
-          
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RazaoSocial)
+            </td>
+            <td>
+                @if (!item.AvaliadaPeloUsuario)
+                {
+                    @Html.ActionLink("Avaliar", "Create", new { id = item.Id })
+                }
+                else
+                {
+                    <p>Já foi avaliada por você</p>
+                }
+
+
+            </td>
+        </tr>
+    }
 
 </table>

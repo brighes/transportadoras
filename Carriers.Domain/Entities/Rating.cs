@@ -17,7 +17,6 @@ namespace Carriers.Domain.Entities
         public ERatingCarrier CuidadoComMercadoria { get; set; }
 
         public virtual Carrier Carrier { get; set; }
-
-        public int IdCarrier { get; set; }
+        public virtual User User { get; set; }
     }
 }

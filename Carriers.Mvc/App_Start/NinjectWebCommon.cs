@@ -12,7 +12,7 @@ namespace Carriers.Mvc.App_Start
     using Ninject.Web.Common;
     using Domain.Interfaces;
     using Infra.Repositories;
-
+    using Domain.Interfaces.Repositories;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -66,6 +66,7 @@ namespace Carriers.Mvc.App_Start
             kernel.Bind(typeof(IRepositoryBase<>)).To(typeof(RepositoryBase<>));
             kernel.Bind(typeof(ICarrierRepository)).To(typeof(CarrierRepository));
             kernel.Bind(typeof(IRatingRepository)).To(typeof(RatingRepository));
+            kernel.Bind(typeof(IUserRepository)).To(typeof(UserRepository));
         }        
     }
 }

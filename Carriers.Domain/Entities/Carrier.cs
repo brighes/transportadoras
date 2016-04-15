@@ -12,7 +12,8 @@ namespace Carriers.Domain.Entities
         public string Nome { get; set; }
         public string RazaoSocial { get; set; }
         public Endereco Endereco { get; set; }
-
+        public bool AvaliadaPeloUsuario { get; set; }
+        
         //public List<Rating> Ratings { get; set; }
     }
 }

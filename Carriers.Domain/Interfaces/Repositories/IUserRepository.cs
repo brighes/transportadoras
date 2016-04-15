@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Carriers.Domain.Interfaces
+namespace Carriers.Domain.Interfaces.Repositories
 {
-    public interface IRatingRepository : IRepositoryBase<Rating>
+    public interface IUserRepository : IRepositoryBase<User>
     {
-        Rating GetRatingBy(int id1, int id2);
+        User GetByMail(string mail);
     }
 }

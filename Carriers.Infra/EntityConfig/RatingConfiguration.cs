@@ -25,7 +25,17 @@ namespace Carriers.Infra.EntityConfig
 
             Property(c => c.Transparencia).IsRequired();
 
-            HasRequired(c => c.Carrier).WithMany().HasForeignKey(x => x.IdCarrier);
+            HasRequired(c => c.Carrier).WithMany().Map(x => x.MapKey("IdCarrier"));
+
+            HasRequired(c => c.User).WithMany().Map(x => x.MapKey("IdUser"));
+
+            HasOptional(a => a.Carrier)
+                .WithOptionalDependent()
+                .WillCascadeOnDelete(true);
+
+            HasOptional(a => a.User)
+               .WithOptionalDependent()
+               .WillCascadeOnDelete(true);
         }
     }
 }

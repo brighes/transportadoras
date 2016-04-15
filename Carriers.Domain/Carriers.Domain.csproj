@@ -43,10 +43,12 @@
     <Compile Include="Entities\Carrier.cs" />
     <Compile Include="Entities\Endereco.cs" />
     <Compile Include="Entities\Rating.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Enuns\ERatingCarrier.cs" />
     <Compile Include="Interfaces\Repositories\IRatingRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICarrierRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repositories\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,12 +6,13 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Rating", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.IdCarrier)
+    @Html.HiddenFor(model => model.IdUser)
 
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Avaliar Transportadora</h4>
         <hr />

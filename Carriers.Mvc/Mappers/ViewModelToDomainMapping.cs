@@ -15,6 +15,9 @@ namespace Carriers.Mvc.Mappers
         protected override void Configure()
         {
             Mapper.CreateMap<CarrierVm, Carrier>();
+            Mapper.CreateMap<UserVm, User>();
+            Mapper.CreateMap<RatingVm, Rating>();
+
         }
     }
 }

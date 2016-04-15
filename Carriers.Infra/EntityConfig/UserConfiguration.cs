@@ -11,16 +11,15 @@ namespace Carriers.Infra.EntityConfig
     /// <summary>
     /// Configurações da entidade Carrier
     /// </summary>
-    public class CarrierConfiguration : EntityTypeConfiguration<Carrier>
+    public class UserConfiguration : EntityTypeConfiguration<User>
     {
-        public CarrierConfiguration()
+        public UserConfiguration()
         {
             HasKey(c => c.Id);
 
-            Property(c => c.Nome).IsRequired();
+            Property(c => c.Mail).IsRequired();
 
-            Property(c => c.RazaoSocial);
-
+            Property(c => c.Password).IsRequired();
         }
     }
 }
