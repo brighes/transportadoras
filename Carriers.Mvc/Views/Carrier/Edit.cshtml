@@ -42,7 +42,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Salvar" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -51,3 +51,10 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+@Scripts.Render("~/bundles/cdn-jquery")
+@Scripts.Render("~/bundles/cdn-jquery-mask")
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Endereco_Cep").mask("99999-999");
+    });
+</script>

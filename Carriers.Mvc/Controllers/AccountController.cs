@@ -25,8 +25,8 @@ namespace Carriers.Mvc.Controllers
             var user = (User)Session["User"];
             if (user != null)
                 return RedirectToAction("Index", "Rating");
-        
-       
+
+
             return View();
         }
 
@@ -42,12 +42,15 @@ namespace Carriers.Mvc.Controllers
 
             var user = _userRepository.GetByMail(model.Mail);
 
-            if(user != null)
+            if (user != null)
             {
                 Session["User"] = user;
 
                 if (user.Password.Equals(model.Password))
                     return RedirectToAction("Index", "Rating");
+
+                ModelState.AddModelError("incorreto", "Email ou senha incorretos.");
+                return View(model);
             }
             ModelState.AddModelError("Mail", "Usuario não cadastrado.");
             return View(model);
@@ -74,6 +77,13 @@ namespace Carriers.Mvc.Controllers
             Session["User"] = user;
 
             return RedirectToAction("Index", "Rating");
+        }
+
+        public ActionResult Logout()
+        {
+            Session["User"] = null;
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

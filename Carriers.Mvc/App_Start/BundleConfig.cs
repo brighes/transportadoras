@@ -8,8 +8,8 @@ namespace Carriers.Mvc
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/cdn-jquery", "https://code.jquery.com/jquery-2.1.4.min.js")
+                .Include("~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -27,8 +27,9 @@ namespace Carriers.Mvc
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/maskedinput").Include(
-                      "~/Scripts/jquery.maskedinput-1.3.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/cdn-jquery-mask", "https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js")
+                        .Include("~/Scripts/jquery.maskedinput.js"));
+
         }
     }
 }
